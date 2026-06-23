@@ -1,0 +1,362 @@
+/* Global Styles */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  /* Header */
+  header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  header .text-2xl {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: -0.05em;
+  }
+  
+  header nav a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  header nav a:hover {
+    color: #000;
+  }
+  
+  .btn-ghost {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .btn-ghost:hover {
+    transform: scale(1.1);
+  }
+  /* Header */
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: relative;
+}
+
+/* Search Bar */
+.search-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar {
+  width: 40%;
+  max-width: 400px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-bar::placeholder {
+  color: #999;
+}
+
+/* Cart Icon */
+.cart-container {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.cart-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.cart-btn:hover {
+  transform: scale(1.1);
+}
+
+.cart-img {
+  width: 65px;
+  height: 65px;
+}
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+button {
+  padding: 10px;
+  background-color: gray;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+  
+  /* Hero Section */
+  .hero-section {
+    position: relative;
+    height: 80vh;
+    width: 100%;
+  }
+  
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+    color: white;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+  
+  .btn-primary {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #333;
+  }
+  
+  
+  /* Categories Section */
+  .categories-section {
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+  
+  .categories-section h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+  
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  .category-card {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+  }
+  
+  .category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .category-card:hover img {
+    transform: scale(1.1);
+  }
+  
+  .category-card span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: white;
+  }
+  
+  /* New Arrivals Section */
+  .new-arrivals-section {
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+  
+  .new-arrivals-section h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+  
+  .new-arrivals-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  
+  .product-card {
+    overflow: hidden;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card:hover img {
+    transform: scale(1.05);
+  }
+  
+  .product-card h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+  
+  .product-card p {
+    font-size: 0.875rem;
+    font-weight: 300;
+  }
+  
+  .btn-outline {
+    background: none;
+    border: 1px solid #000;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-outline:hover {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  /* Newsletter Section */
+  .newsletter-section {
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+  
+  .newsletter-section h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+  
+  .newsletter-section p {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+  
+  .newsletter-input {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .newsletter-input input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 300px;
+  }
+  
+  .newsletter-input button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .newsletter-input button:hover {
+    background-color: #333;
+  }
+  
+  /* Footer */
+  .footer-section {
+    background-color: #000;
+    color: #fff;
+    padding: 4rem 1rem;
+  }
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  
+  .footer-grid h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-grid ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-grid ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-grid ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 300;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-grid ul li a:hover {
+    color: #ccc;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+    font-size: 0.875rem;
+  }

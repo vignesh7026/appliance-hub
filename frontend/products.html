@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APPLIANCE HUB - Products</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/1.0.0/lucide.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <header class="sticky top-0 z-50 bg-white border-b">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="lg:hidden">
+                <button class="btn-ghost">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+            </div>
+
+            <div class="text-2xl font-bold tracking-tighter">APPLIANCE HUB</div>
+
+            <nav class="hidden lg:flex space-x-8 text-sm">
+                <a href="index.html" class="hover:underline">HOME</a>
+                <a href="products.html" class="hover:underline">PRODUCTS</a>
+                <a href="arrivals.html" class="hover:underline">NEW ARRIVALS</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <button class="btn-ghost">
+                    <i data-lucide="search" class="h-5 w-5"></i>
+                </button>
+                <button class="btn-ghost">
+                    <i data-lucide="user" class="h-5 w-5"></i>
+                </button>
+                <button class="btn-ghost">
+                    <i data-lucide="shopping-bag" class="h-5 w-5"></i>
+                </button>
+            </div>
+        </div>
+        <div class="cart-container">
+            <button class="cart-btn" onclick="goToCartPage()">
+                <img src="c:\Users\Lenovo\Downloads\COLOURBOX24637869.webp" alt="Cart" class="cart-img">
+            </button>
+        </div>
+        <a href="cart.html" class="cart-btn"></a>
+  
+    </header>
+
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">OUR PRODUCTS</h2>
+
+            <section class="new-arrivals-section bg-gray-50">
+                <h2></h2>
+                <div class="new-arrivals-grid">
+                  <div class="product-card">
+                    <img src="c:\Users\Lenovo\Downloads\air-conditioner-mounted-white-wall_53876-128235.avif" alt="Air Conditioner">
+                    <h3>Air Conditioner</h3>
+                    <p>₹39,999</p>
+                    <button class="btn-primary" onclick="addToCart('Air Conditioner', 39999)">Add to Cart</button>
+                </div>
+                
+                  <div class="product-card">
+                    <img src="c:\Users\Lenovo\Downloads\FHM1408BDL-Washing-Machines-Front-View-DZ-01-v1.avif" alt="Washing Machine">
+                    <h3>Washing Machine</h3>
+                    <p>₹29,650</p>
+                    <button class="btn-primary" onclick="addToCart('Washing Machine',29,650 )">Add to Cart</button>
+                  </div>
+                  <div class="product-card">
+                    <img src="c:\Users\Lenovo\Downloads\224939-ztigy2-png.png" alt="Refrigirator">
+                    <h3>Refrigirator</h3>
+                    <p>₹24,599</p>
+                    <button class="btn-primary" onclick="addToCart('Washing Machine',29,650 )">Add to Cart</button>
+                  </div>
+                  <div class="product-card">
+                    <img src="c:\Users\Lenovo\Downloads\1662027897.png" alt="Sofa set">
+                    <h3>Sofa set</h3>
+                    <p>₹16,599</p>
+                    <button class="btn-primary" onclick="addToCart('Washing Machine',29,650 )">Add to Cart</button>
+                  </div>
+                  <div class="product-card">
+                    <img src="c:\Users\Lenovo\Downloads\614Q2qMRVBL._SX679_.jpg" alt="Gas Stove">
+                    <h3>Gas Stove </h3>
+                    <p>₹3599</p>
+                    <button class="btn-primary" onclick="addToCart('Washing Machine',29,650 )">Add to Cart</button>
+                  </div>
+                  <div class="product-card">
+                    <img src="c:\Users\Lenovo\Downloads\81o01TeafeL._SL1500_.jpg" alt="Queen Bed">
+                    <h3>Queen Bed  </h3>
+                    <p>₹1599</p>
+                    <button class="btn-primary" onclick="addToCart('Washing Machine',29,650 )">Add to Cart</button>
+                  </div>
+                  <div class="product-card">
+                    <img src="c:\Users\Lenovo\Downloads\eYeIBBxuzX-bpl-32-hd-television-492166140-i-1-1200wx1200h.avif" alt="televison">
+                    <h3>43 inch Television </h3>
+                    <p>₹53,500</p>
+                    <button class="btn-primary" onclick="addToCart('Washing Machine',29,650 )">Add to Cart</button>
+                  </div>
+                  <div class="product-card">
+                    <img src="c:\Users\Lenovo\Downloads\301438_0_x5lek1.webp" alt="Speakers">
+                    <h3>Boat Speakers</h3>
+                    <p>₹1999</p>
+                    <button class="btn-primary" onclick="addToCart('Washing Machine',29,650 )">Add to Cart</button>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="footer-grid">
+            <div>
+                <h3>HELP</h3>
+                <ul>
+                    <li><a href="#">Shop at Store</a></li>
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">Payment</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>FOLLOW US</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Pinterest</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 Appliance Store. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/1.0.0/lucide.min.js">
+       
+    </script>
+    
+</body>
+</html>

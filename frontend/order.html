@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Placement</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .order-container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Order Placement</h1>
+</header>
+
+<section class="order-container">
+    <h2>Review Your Order</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody id="order-items"></tbody>
+    </table>
+    <h2>Total: ₹<span id="order-total">0</span></h2>
+    <button class="btn-primary" onclick="placeOrder()">Place Order</button>
+    <p id="order-message" style="color: green; display: none;">✔ Order placed successfully!</p>
+</section>
+
+<script>
+    function loadOrder() {
+        let order = JSON.parse(localStorage.getItem("order")) || [];
+        let orderTable = document.getElementById("order-items");
+        let total = 0;
+        orderTable.innerHTML = "";
+
+        if (order.length === 0) {
+            orderTable.innerHTML = `<tr><td colspan="4" class="empty-cart">No orders found. Redirecting...</td></tr>`;
+            setTimeout(() => {
+                window.location.href = "cart.html"; // Redirect if no orders
+            }, 2000);
+            return;
+        }
+
+        order.forEach(item => {
+            let subtotal = item.price * item.quantity;
+            total += subtotal;
+
+            orderTable.innerHTML += `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>₹${item.price}</td>
+                    <td>${item.quantity}</td>
+                    <td>₹${subtotal}</td>
+                </tr>
+            `;
+        });
+
+        document.getElementById("order-total").textContent = total;
+    }
+
+    function placeOrder() {
+        alert("Thank you for your order! Your items will be processed soon.");
+        localStorage.removeItem("order"); // Clear order storage
+        document.getElementById("order-message").style.display = "block";
+
+        setTimeout(() => {
+            window.location.href = "index.html"; // Redirect to homepage
+        }, 3000);
+    }
+
+    loadOrder();
+</script>
+
+</body>
+</html>

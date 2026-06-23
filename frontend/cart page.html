@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .cart-container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-primary, .btn-remove {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .btn-remove {
+            background-color: #dc3545;
+        }
+        .btn-primary:hover {
+            background-color: #218838;
+        }
+        .btn-remove:hover {
+            background-color: #c82333;
+        }
+        .empty-cart {
+            font-size: 1.2em;
+            color: #888;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Your Cart</h1>
+</header>
+
+<section class="cart-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="cart-items"></tbody>
+    </table>
+    <h2>Total: ₹<span id="cart-total">0</span></h2>
+    <button class="btn-primary" onclick="checkout()">Proceed to Checkout</button>
+    <p id="checkout-message" style="color: green; display: none;">✔ Redirecting to order placement...</p>
+</section>
+
+<script>
+    function loadCart() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let cartTable = document.getElementById("cart-items");
+        let total = 0;
+        cartTable.innerHTML = "";
+
+        if (cart.length === 0) {
+            cartTable.innerHTML = `<tr><td colspan="5" class="empty-cart">Your cart is empty 🛒</td></tr>`;
+            return;
+        }
+
+        cart.forEach((item, index) => {
+            let subtotal = item.price * item.quantity;
+            total += subtotal;
+
+            cartTable.innerHTML += `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>₹${item.price}</td>
+                    <td>${item.quantity}</td>
+                    <td>₹${subtotal}</td>
+                    <td><button class="btn-remove" onclick="removeItem(${index})">Remove</button></td>
+                </tr>
+            `;
+        });
+
+        document.getElementById("cart-total").textContent = total;
+    }
+
+    function removeItem(index) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.splice(index, 1); // Remove item at the given index
+        localStorage.setItem("cart", JSON.stringify(cart)); // Update local storage
+        loadCart(); // Reload the cart
+    }
+
+    function checkout() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        if (cart.length === 0) {
+            alert("Your cart is empty! Add items before checking out.");
+            return;
+        }
+
+        if (confirm("Are you sure you want to proceed to checkout?")) {
+            localStorage.setItem("order", JSON.stringify(cart)); // Store order details
+            localStorage.removeItem("cart"); // Clear the cart
+
+            document.getElementById("checkout-message").style.display = "block";
+
+            setTimeout(() => {
+                window.location.href = "order.html"; // Redirect to order placement
+            }, 2000);
+        }
+    }
+
+    loadCart();
+</script>
+
+</body>
+</html>
